@@ -1,33 +1,24 @@
-# Hosting a Full-Stack Application
+# Udacity Full-Stack Application hosting (Udagram)
 
-### **You can use you own project completed in previous courses or use the provided Udagram app for completing this final project.**
 
----
+### **Project overview**
 
-In this project we will host  Full-Stack application  deploy it to a cloud service provider  that  is available to customers. You will use the aws cli to start and configure the services the application needs such as a database to store product information and a web server allowing the site to be discovered by potential customers.
-### Dependencies
+Udagram is provided bu Udacity as an alternative starter project. The udagram application is a fairly simple application that includes all the major components of a Full-Stack web application.
+
+### **Dependencies**
 
 ```
-- Node v14.15.1 (LTS) or more recent. While older versions can work it is advisable to keep node to latest LTS version
-
-- npm 6.14.8 (LTS) or more recent, Yarn can work but was not tested for this project
-
-- AWS CLI v2, v1 can work but was not tested for this project
-
+- Node v14.15.1 (LTS)
+- npm 6.14.8 (LTS)
+- AWS CLI v2
 - A RDS database running Postgres.
-
 - A S3 bucket for hosting uploaded pictures.
-
 ```
 
-### Installation
 
+## Hosted production application
 
-1. In AWS, provision a publicly available RDS database running Postgres. <Place holder for link to classroom article>
-1. In AWS, provision a s3 bucket for hosting the uploaded files. <Place holder for tlink to classroom article>
-1. Export the ENV variables needed or use a package like [dotnev](https://www.npmjs.com/package/dotenv)/.
-1. From the root of the repo, navigate udagram-api folder `cd starter/udagram-api` to install the node_modules `npm install`. After installation is done start the api in dev mode with `npm run dev`.
-1. Without closing the terminal in step 1, navigate to the udagram-frontend `cd starter/udagram-frontend` to intall the node_modules `npm install`. After installation is done start the api in dev mode with `npm run start`.
+You can navigate to this application through this URL [Udagram](http://storefront-udacity.s3-website.us-east-2.amazonaws.com)
 
 ## Testing
 
@@ -43,11 +34,48 @@ There are no Unit test on the back-end
 
 Unit tests are using the Jasmine Framework.
 
-### End to End Tests:
-
-The e2e tests are using Protractor and Jasmine.
-
 
 ## License
 
 [License](LICENSE.txt)
+
+## Documentation Dependecies 
+dependencies for both front-end application and API back-end application.
+
+## Global dependencies
+- Node v14.15.1 (LTS)
+- npm 6.14.8 (LTS)
+- AWS CLI v2
+- A RDS database running Postgres.
+- A S3 bucket for hosting uploaded pictures.
+
+# Pipline Description 
+Pipeline contains 2 steps (Build, Deploy)
+
+### 1. Build
+This step contains needed actions to run the application (both front and back end) on CircleCI containers:
+
+1. Install Front-End Dependencies.
+
+Here we are installing all required dependencies for front-end application.
+
+2. Install API Dependencies.
+
+Here we are installing all required dependencies for back-end application.
+
+3. Front-End Lint.
+
+Running lint aginst front-end application files.
+
+4. Front-End Build.
+
+Running build commands inside CircleCI computer for front-end application.
+
+5. API Build.
+
+Running build commands inside CircleCI computer for back-end application.
+
+### 2. Deploy
+This step contains needed actions to deploy these applications to AWS different services (S3, EB).
+
+
